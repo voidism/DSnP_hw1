@@ -19,7 +19,7 @@ void cta(string letter)
     cout << endl;
 }
 
-string distinguish_enter_type(const string& csvFile){
+char distinguish_enter_type(const string& csvFile){
     const char* filename = csvFile.c_str();
     fstream file;
     file.open(filename);
@@ -29,11 +29,12 @@ string distinguish_enter_type(const string& csvFile){
      ostreambuf_iterator<char>(ss));
     string record = ss.str();
     if(record.find("\r\n")!=string::npos)
-        return "\n";
+        return '\n';
     if(record.find("\r")!=string::npos)
-        return "\r";
+        return '\r';
     if(record.find("\n")!=string::npos)
-        return "\n";
+        return '\n';
+    return '\n';
 }
 
 // Implement member functions of class Row and Table here
@@ -47,7 +48,9 @@ Table::read(const string& csvFile)
     string line;
     int dot=0;
     int r=0;
-    while(getline(file, line, distinguish_enter_type(csvFile))){
+    char dtp;
+    dtp = distinguish_enter_type(csvFile);
+    while(getline(file, line, dtp)){
         stringstream ss(line);
         string item;
         vector<int> vec;
