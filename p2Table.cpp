@@ -19,6 +19,22 @@ void cta(string letter)
     cout << endl;
 }
 
+string distinguish_enter_type(const string& csvFile){
+    const char* filename = csvFile.c_str();
+    fstream file;
+    file.open(filename);
+    stringstream ss;
+    copy(istreambuf_iterator<char>(file),
+     istreambuf_iterator<char>(),
+     ostreambuf_iterator<char>(ss));
+    string record = ss.str();
+    if(record.find("\r\n")!=string::npos)
+        return "\n";
+    if(record.find("\r")!=string::npos)
+        return "\r";
+    if(record.find("\n")!=string::npos)
+        return "\n";
+}
 
 // Implement member functions of class Row and Table here
 bool
@@ -31,7 +47,7 @@ Table::read(const string& csvFile)
     string line;
     int dot=0;
     int r=0;
-    while(getline(file, line)){
+    while(getline(file, line, distinguish_enter_type(csvFile))){
         stringstream ss(line);
         string item;
         vector<int> vec;
@@ -47,7 +63,6 @@ Table::read(const string& csvFile)
         }
         if((ss.rdbuf()->in_avail()==0)&&(item.empty())){
             vec.push_back(INT_MAX);
-            cout << "cc";
         }
         _nCols = vec.size();
         Row temp(vec);
