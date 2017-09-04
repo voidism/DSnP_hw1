@@ -171,7 +171,7 @@ void Table::ave(int first_num){
         cout<<"The average of data in column #" << first_num << " is " << fixed << setprecision(1) << d_sum/d_cter << ".\n";
     }
 }
-void Table::add(vector<string> arg, int arg_size){
+void Table::add(vector<string> arg, unsigned int arg_size){
     Row temp(arg_size-1);
     for(unsigned int i=1;i<arg_size;i++){
         if(arg[i]=="."){

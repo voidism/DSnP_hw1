@@ -49,7 +49,7 @@ public:
    void min(int);
    void dist(int);
    void ave(int);
-   void add(vector<string>, int);
+   void add(vector<string>, unsigned int);
    // Basic access functions
    size_t nCols() const { return _nCols; }
    const Row& operator[] (size_t i) const { return _rows[i]; }
