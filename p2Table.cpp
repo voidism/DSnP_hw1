@@ -19,6 +19,7 @@ void cta(string letter)
     cout << endl;
 }
 
+
 // Implement member functions of class Row and Table here
 bool
 Table::read(const string& csvFile)
@@ -37,12 +38,10 @@ Table::read(const string& csvFile)
         while(getline(ss, item, ',')){
             if(item==""||item=="\r"){
                 vec.push_back(INT_MAX);
-                cta(item);
                 dot++;
             }
             else{
                 vec.push_back(atoi(item.c_str()));
-                cta(item);
                 r++;
             }
         }
