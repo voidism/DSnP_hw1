@@ -4,6 +4,7 @@
   Synopsis     [ Header file for class Row and Table ]
   Author       [ Chung-Yang (Ric) Huang ]
   Copyright    [ Copyleft(c) 2016-present LaDs(III), GIEE, NTU, Taiwan ]
+  Student      [ b05901033 Jexus Chuang ]
 ****************************************************************************/
 #ifndef P2_TABLE_H
 #define P2_TABLE_H
@@ -43,6 +44,12 @@ public:
    bool read(const string&);
    void print();
    void command(string);
+   void sum(int);
+   void max(int);
+   void min(int);
+   void dist(int);
+   void ave(int);
+   void add(vector<string>, int);
    // Basic access functions
    size_t nCols() const { return _nCols; }
    const Row& operator[] (size_t i) const { return _rows[i]; }

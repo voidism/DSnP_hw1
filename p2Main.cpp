@@ -4,10 +4,8 @@
   Synopsis     [ Define main() function ]
   Author       [ Chung-Yang (Ric) Huang ]
   Copyright    [ Copyleft(c) 2016-present LaDs(III), GIEE, NTU, Taiwan ]
+  Student      [ b05901033 Jexus Chuang ]
 ****************************************************************************/
-#ifndef MAIN
-#define MAIN
-
 #include <iostream>
 #include <string>
 #include "p2Table.h"
@@ -41,4 +39,3 @@ int main()
    }
 }
 
-#endif // MAIN
