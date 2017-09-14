@@ -53,7 +53,10 @@ Table::read(const string& csvFile)
 {
     const char* filename = csvFile.c_str();
     fstream file;
-    file.open(filename);
+    file.open(filename, ios::in);
+    if(!file.is_open()){
+        return false;
+    }
     string line;
     char dtp;
     dtp = distinguish_enter_type(csvFile);
@@ -186,6 +189,8 @@ void Table::add(vector<string> arg, unsigned int arg_size){
 }
 
 void Table::command(string ins){
+    if(ins !=""){
+    
     stringstream input(ins);
     string str;
     vector<int> manip;
@@ -256,7 +261,9 @@ void Table::command(string ins){
         print();
     }
     else{
-        cout << "Please Input the Right Command!\n";
+        cout << "Error:unknown command: \"" << ins <<"\"\n";
+    }
+    
     }
 }
 

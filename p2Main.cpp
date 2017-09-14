@@ -32,7 +32,6 @@ int main()
 
    // TODO read and execute commands
    while (true) {
-        cout << ">>> ";
         string ind;
         getline(cin,ind);
         table.command(ind);
